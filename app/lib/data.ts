@@ -39,6 +39,10 @@ export async function fetchLatestInvoices() {
       ORDER BY invoices.date DESC
       LIMIT 5`;
 
+    console.log("Fetching latest invoices...");
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    console.log("Invoices fetched after 2 seconds.");
+
     const latestInvoices = data.map((invoice) => ({
       ...invoice,
       amount: formatCurrency(invoice.amount),
